@@ -30,7 +30,7 @@
 
         <!-- Buttons -->
 
-        <div class="grid gap-2 md:gap-5 grid-flow-col">
+        <div id="btns" class="grid gap-2 md:gap-5 grid-flow-col">
             <button class="rounded-full w-8 h-8 md:h-14 md:w-14 focus:bg-[#fb7413] focus:text-white hover:bg-[#959eac] hover:text-[#252d37] bg-[#343f4c] text-lg text-[#959eac] p-1">1</button>
             <button class="rounded-full w-8 h-8 md:h-14 md:w-14 focus:bg-[#fb7413] focus:text-white hover:bg-[#959eac] hover:text-[#252d37]  bg-[#343f4c] text-lg text-[#959eac] p-1">2</button>
             <button class="rounded-full w-8 h-8 md:h-14 md:w-14 focus:bg-[#fb7413] focus:text-white hover:bg-[#959eac] hover:text-[#252d37]  bg-[#343f4c] text-lg text-[#959eac] p-1">3</button>
@@ -39,7 +39,7 @@
 
            </div>
             <!-- Submit Button -->
-            <button id="submit" type="submit" class="mt-4 rounded-3xl tracking-widest text-white text-lg p-2 text-center bg-[#fb7413]">
+            <button id="submit" value="submit" type="submit" class="mt-4 rounded-3xl tracking-widest text-white text-lg p-2 text-center bg-[#fb7413]">
                 SUBMIT
             </button>
       </main>
@@ -64,14 +64,18 @@
             const mainContainer = document.getElementById("main");
             const thanksContainer = document.getElementById("thanks");
             const thanksNumber = document.getElementById("number");
-            const buttons = document.querySelectorAll("#main button");
-          
-            buttons.forEach((button, index) => {
-              button.addEventListener("click", function () {
-                mainContainer.style.display = "none";
-                thanksContainer.style.display = "flex";
-                thanksNumber.textContent = index + 1;
-              });
+            const buttons = document.querySelectorAll("#btns button");
+            var num;
+
+            submitBtn.addEventListener("click",function(){
+              mainContainer.style.display="none";
+              thanksContainer.style.display="flex";
+            })
+
+            buttons.forEach((rate) => {
+              rate.addEventListener("click",function(){
+                thanksNumber.innerHTML = rate.innerHTML;
+              })
             });
           </script>
           
